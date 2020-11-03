@@ -1,2 +1,3 @@
 # rn-workout-app
-React Native Workout App
+To start Expo and project:
+npm start
