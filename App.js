@@ -15,6 +15,7 @@ import { Button, StatusBar, StyleSheet } from "react-native";
 import { MaterialHeaderButtons, Item } from "./app/utilities/HeaderButtons";
 import AddWeightScreen from "./app/screens/AddWeightScreen";
 import { AntDesign } from "@expo/vector-icons";
+import RecordsUpdateScreen from "./app/screens/RecordsUpdateScreen";
 
 const AuthStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -50,11 +51,11 @@ const DashboardStackScreen = (props) => (
               iconName="skin"
               onPress={() => props.navigation.navigate("AddWeightScren")}
             />
-            <Item
+            {/* <Item
               title="changetheme"
               iconName="eyeo"
               onPress={() => alert("Change theme!")}
-            />
+            /> */}
           </MaterialHeaderButtons>
         ),
       }}
@@ -92,6 +93,11 @@ const RecordsStackScreen = (props) => (
       options={{
         title: "Váhy",
       }}
+    />
+    <ReecordsStack.Screen
+      name="RecordsUpdateScreen"
+      component={RecordsUpdateScreen}
+      options={{ title: "Úprava cviku" }}
     />
   </ReecordsStack.Navigator>
 );
@@ -187,9 +193,18 @@ export default function App() {
         ) : (
           <AuthStack.Navigator>
             <AuthStack.Screen
+              options={{
+                title: "",
+                headerStyle: {
+                  backgroundColor: "#fff",
+                  shadowColor: "transparent",
+                  elevation: 0,
+                  borderBottomWidth: 0,
+                },
+                headerTintColor: "#fff",
+              }}
               name="SignIn"
               component={LoginScreen}
-              options={{ title: "Přihlášení" }}
             />
             {/* <AuthStack.Screen name="HomeScreen" component={HomeScreen}  options={{ title: "Dashboard" }} /> */}
           </AuthStack.Navigator>
